@@ -807,9 +807,261 @@
 # 38 - EASY ARRAY
 
 
-def checkString(s: str) -> bool:
-    s2 = ''.join(sorted(s))
-    return s == s2
+# def checkString(s: str) -> bool:
+#     s2 = ''.join(sorted(s))
+#     return s == s2
 
-s = "abab"
-print(checkString(s))
+# s = "abab"
+# print(checkString(s))
+
+
+# 39 - EASY ARRAY
+
+
+# class Solution:
+#     def containsDuplicate(self, nums: list[int]) -> bool:
+#         return True if len(set(nums)) != len(nums) else False
+    
+
+
+# s = Solution()
+# nums = [1,2,3,1]
+# print(s.containsDuplicate(nums))
+
+
+# 40 - EASY 
+
+
+# def runningSum(nums: list[int]):
+#     for i in range(1, len(nums)):
+#         nums[i] += nums[i-1]
+#     return nums
+
+# nums = [1,2,3,4]
+# print(runningSum(nums))
+
+
+
+# 41 - EASY 
+
+
+# def arrayStringsAreEqual(word1: list[str], word2: list[str]) -> bool:
+#     return True if ''.join(word1) == ''.join(word2) else False 
+
+
+
+# word1 = ["ab", "c"]
+# word2 = ["a", "bc"]
+# print(arrayStringsAreEqual(word1, word2))
+
+
+
+# 42 - EASY
+
+
+
+# def countMatches(items: list[list[str]], ruleKey: str, ruleValue: str) -> int:
+#     counter = 0
+#     rules = {
+#         'type': 0,
+#         'color': 1,
+#         'name': 2,
+#     }
+
+#     indx = rules[ruleKey]
+
+#     for i in range(len(items)):
+#         if items[i][indx] == ruleValue:
+#             counter += 1
+#     return counter
+
+# items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]]
+# ruleKey = "color"
+# ruleValue = "silver"
+# print(countMatches(items, ruleKey, ruleValue))
+
+
+# 43 - EASY
+
+
+# def truncateSentence(s: str, k: int) -> str:
+#         # s =  s.split(" ")
+#         # return s[:k]
+#         return " ".join(s.split(" ")[:k])
+
+# s = "Hello how are you Contestant"
+# k = 4
+# print(*truncateSentence(s, k))
+
+
+# 44 - EASY
+
+# def capitalizeTitle(title: str) -> str:
+#         output = list()
+#         word_arr = title.split()
+#         for word in word_arr:
+#                 output.append(word.title()) if len(word) > 2 else output.append(word.lower())
+#         return " ".join(output)
+        
+
+
+
+
+# title = "First leTTeR of EACH Word"
+# print(capitalizeTitle(title))
+
+
+
+
+# class Solution:
+#     def capitalizeTitle(self, title: str) -> str:
+#         ls=title.split(" ")
+#         a=[]
+#         for i in ls:
+#             if len(i)==1 or len(i)==2: a.append(i.lower())
+#             else: a.append(i.capitalize())
+#         b=' '.join([str(elem) for elem in a])
+#         return b
+    
+# s = Solution()
+# title = "First leTTeR of EACH Word"
+# print(s.capitalizeTitle(title))
+
+
+# 45 - Easy
+
+
+# def differenceOfSums(n: int, m: int) -> int:
+#     # nums1 = [i for i in range(1, n + 1) if i % m != 0]
+#     # nums2 = [i for i in range(1, n + 1) if i % m == 0]
+
+#     # return sum(nums1) - sum(nums2)
+#     return sum([i for i in range(1, n + 1) if i % m != 0]) - sum([i for i in range(1, n + 1) if i % m == 0])
+
+
+# n = 10
+# m = 3
+# print(differenceOfSums(n, m))
+
+
+# 46 - Easy
+
+
+# def smallestEvenMultiple(n: int) -> int:
+#     return n if n % 2 == 0 else n * 2
+
+
+# n = 5
+# print(smallestEvenMultiple(n))
+
+
+# 47 - Easy
+
+
+# def reverseWords(s: str) -> str:
+#     ls = s.split(' ')
+#     new_ls = list()
+
+#     for i in ls:
+#         new_ls.append(i[::-1])
+#     result = ' '.join([str(elem) for elem in new_ls])
+
+#     return result
+
+
+
+# s = "Let's take LeetCode contest"
+# print(reverseWords(s))
+
+
+
+# 48 - Easy
+
+
+# def maxProductDifference(nums: list[int]) -> int:
+#     nums.sort()
+#     a, b, c, d = nums[-1], nums[-2], nums[0], nums[1]
+#     return (a * b) - (c * d)
+
+#     # return nums[-1] * nums[-2] - nums[0] * nums[1]
+
+# def maxProductDifference(self, nums: List[int]) -> int:
+#     biggest = 0
+#     second_biggest = 0
+#     smallest = inf
+#     second_smallest = inf
+        
+#     for num in nums:
+#         if num > biggest:
+#             second_biggest = biggest
+#             biggest = num
+#         else:
+#             second_biggest = max(second_biggest, num)
+                
+#         if num < smallest:
+#             second_smallest = smallest
+#             smallest = num
+#         else:
+#             second_smallest = min(second_smallest, num)
+    
+#     return biggest * second_biggest - smallest * second_smallest
+
+# nums = [5,6,2,7,4]
+# print(maxProductDifference(nums))
+
+
+# 48 - easy
+
+
+# def isAcronym(words: list[str], s: str) -> bool:
+#     # check_words = [i[0] for i in words]
+#     # flag = False
+
+#     # if len(s) == len(check_words):
+#     #     for i in range(len(s)):
+#     #         if s[i] == check_words[i]:
+#     #             flag = True
+#     #         else:
+#     #             flag = False
+#     #             break
+#     # return flag
+    
+#     pref_words = [i[0] for i in words]
+
+#     check = ''.join(pref_words)
+#     return s == check
+
+# words = ["an","apple"]
+# s = "a"
+# print(isAcronym(words, s))
+
+
+# 49 - easy
+
+
+# def uniqueMorseRepresentations(words: list[str]) -> int:
+    
+#     dicti = {
+#         'a':".-", 'b':"-...", 'c':"-.-.", 'd':"-..", 'e':".", 'f':"..-.", 'g':"--.", 'h':"....", 'i':"..", 'j':".---", 'k':"-.-", 'l':".-..", 'm':"--", 'n':"-.", 'o':"---", 'p':".--.", 'q':"--.-", 'r':".-.", 's':"...", 't':"-", 'u':"..-", 'v':"...-", 'w':".--", 'x':"-..-", 'y':"-.--", 'z':"--.."
+#         }
+#     list_checkup = list()
+
+
+
+#     for i in range(len(words)):
+#         result = ''
+#         check_word = words[i]
+
+#         for j in check_word:
+#             result += dicti.get(j)
+#         list_checkup.append(result)
+#         result = ''
+    
+#     return len(set(list_checkup))
+
+
+
+# words = ["rwjje","aittjje","auyyn","lqtktn","lmjwn"]
+# print(uniqueMorseRepresentations(words))
+
+
