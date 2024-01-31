@@ -1118,3 +1118,36 @@
 # print(reversePrefix(word, ch))
 
 
+# 53 - easy
+
+# import pandas as pd
+
+# def createDataframe(student_data: list[list[int]]) -> pd.DataFrame:
+#   return pd.DataFrame(student_data, columns = ["student_id", "age"], index = range(1, len(student_data) + 1))
+  
+
+
+
+# student_data = [
+#   [1, 15],
+#   [2, 11],
+#   [3, 11],
+#   [4, 20]
+# ]
+
+# print(createDataframe(student_data))
+
+
+# 54 - easy
+
+
+# def sortPeople(names: list[str], heights: list[int]) -> list[str]:
+#   piople = sorted(list(zip(names, heights)), key=lambda item: item[1], reverse=True)
+#   return [name for name, heights in piople]
+
+
+
+# names = ["Mary","John","Emma"]
+# heights = [180,165,170]
+
+# print(sortPeople(names, heights))
