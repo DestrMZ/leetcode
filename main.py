@@ -1151,3 +1151,4 @@
 # heights = [180,165,170]
 
 # print(sortPeople(names, heights))
+# 1
