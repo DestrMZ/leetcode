@@ -1065,3 +1065,56 @@
 # print(uniqueMorseRepresentations(words))
 
 
+# 50 - easy
+
+
+# def getDecimalValue(head: list) -> int:
+#     new_head = ''
+#     for i in head:
+#         new_head += str(i)
+#     return int(new_head, 2) * 2
+
+
+
+
+# head = [1,0,1]
+# print(getDecimalValue(head))
+
+
+# 51 - easy
+
+# first option 
+# def numOfStrings(patterns: list[str], word: str) -> int:
+#     counter = 0
+    
+#     for i in range(len(patterns)):
+#         if patterns[i] in word:
+#             counter += 1
+#     return counter
+
+# second 
+
+# def numOfStrings(patterns: list[str], word: str) -> int:
+#     return sum(patterns in word for patterns in word)
+
+
+# patterns = ["a","b","c"]
+# word = "aaaaabbbbb"
+# print(numOfStrings(patterns, word))
+
+
+# 52 - easy
+
+
+# def reversePrefix(word: str, ch: str) -> str:
+#     index = word.find(ch) + 1
+#     revers_word = word[:index]
+#     revers = revers_word[::-1]
+#     return revers + word[index:]
+
+# word = "abcdefd"
+# ch = "d"
+
+# print(reversePrefix(word, ch))
+
+
