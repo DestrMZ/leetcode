@@ -288,7 +288,7 @@
 
 # 13 - EASY PANDAS
 # Input:
-# df1
+# pd.DataFrame1
 # +------------+---------+-----+
 # | student_id | name    | age |
 # +------------+---------+-----+
@@ -297,7 +297,7 @@
 # | 3          | Taylor  | 15  |
 # | 4          | Georgia | 17  |
 # +------------+---------+-----+
-# df2
+# pd.DataFrame2
 # +------------+------+-----+
 # | student_id | name | age |
 # +------------+------+-----+
@@ -320,8 +320,8 @@
 
 # import pandas as pd
 
-# def concatenateTables(df1: pd.DataFrame, df2: pd.DataFrame) -> pd.DataFrame:
-#     new_pd = pd.concat([df1, df2])
+# def concatenateTables(pd.DataFrame1: pd.DataFrame, pd.DataFrame2: pd.DataFrame) -> pd.DataFrame:
+#     new_pd = pd.concat([pd.DataFrame1, pd.DataFrame2])
 #     return new_pd
 
 
@@ -516,12 +516,12 @@
 
 #         n_str1 = len(str1)
 #         n_str2 = len(str2)
-#         df = gcd(n_str1, n_str2)
+#         pd.DataFrame = gcd(n_str1, n_str2)
 
 #         if (str1 + str2) != (str2 + str1):
 #             return ""
 #         else:
-#             return str1[0:df]
+#             return str1[0:pd.DataFrame]
         
 
 # str1 = "ABC"
@@ -579,8 +579,8 @@
 # import pandas as pd
 
 # def createDataframe(student_data: list[list[int]]) -> pd.DataFrame:
-#     df = pd.DataFrame(student_data, columns=['student_id', 'age'])
-#     return df
+#     pd.DataFrame = pd.DataFrame(student_data, columns=['student_id', 'age'])
+#     return pd.DataFrame
 
 # student_data = [
 #   [1, 15],
@@ -619,11 +619,11 @@
 
 # import pandas as pd
 
-# def selectData(df: pd.DataFrame) -> pd.DataFrame:
-#     df = pd.DataFrame(df) # whole dataframe
-#     df = df[df['customer_id']==2] # dataframe with student_id==101
-#     # df = df[['name','age']] # selected columns from dataframe with student_id=101
-#     return df
+# def selectData(pd.DataFrame: pd.DataFrame) -> pd.DataFrame:
+#     pd.DataFrame = pd.DataFrame(pd.DataFrame) # whole dataframe
+#     pd.DataFrame = pd.DataFrame[pd.DataFrame['customer_id']==2] # dataframe with student_id==101
+#     # pd.DataFrame = pd.DataFrame[['name','age']] # selected columns from dataframe with student_id=101
+#     return pd.DataFrame
     
 
 # students.loc[students['student_id'] == 101, ['name', 'age']]
@@ -636,13 +636,13 @@
 # import pandas as pd
 
 # def dropDuplicateEmails(customers: pd.DataFrame) -> pd.DataFrame:
-#     df = customers.drop_duplicates(subset=['email'])
-#     return df
+#     pd.DataFrame = customers.drop_duplicates(subset=['email'])
+#     return pd.DataFrame
 
 
 # return customers.groupby('email').head(1)
 
-# df = {
+# pd.DataFrame = {
 #     'customer_id': [1,2,3,4,5,6],
 #     'name': ['Ella', 'David', 'Zachary', 'Alice', 'Finn', 'Violeta'],
 #     'email': ['emily@example.com', 'michael@example.com', 'sarah@example.com', 'john@example.com', 'john@example.com', 'john@example.com']
@@ -724,7 +724,7 @@
 #     # Filter animals based on their weight before sorting
 #     heavy_animals = animals[animals["weight"] > 100]
 
-#     # Sort the smaller df which is more efficient
+#     # Sort the smaller pd.DataFrame which is more efficient
 #     heavy_animals = heavy_animals.sort_values(by="weight", ascending=False)[["name"]]
 
 #     return heavy_animals
@@ -836,6 +836,7 @@
 #     for i in range(1, len(nums)):
 #         nums[i] += nums[i-1]
 #     return nums
+
 
 # nums = [1,2,3,4]
 # print(runningSum(nums))
@@ -1151,4 +1152,116 @@
 # heights = [180,165,170]
 
 # print(sortPeople(names, heights))
-# 1
+
+
+# 55 - easy
+   
+
+# def fizzBuzz(n: int) -> list[str]:
+#     check_list = []
+
+#     for i in range(1, n + 1):
+#         if i % 15 == 0: check_list.append('FizzBuzz')
+#         elif i % 3 == 0: check_list.append('Fizz')
+#         elif i % 5 == 0: check_list.append('Buzz')
+#         else: check_list.append(str(i))
+
+#     return check_list
+
+#     # return ["FizzBuzz" if i % 15 == 0 else "Fizz" if i % 3 == 0 else "Buzz" if i % 5 == 0 else str(i) for i in range(1, n + 1)]
+
+# class Solution:
+#     def fizzBuzz(self, n: int):
+#         ans = []
+#         for i in range(1, n + 1):
+#             ans.append(
+#                 "FizzBuzz" if i % 15 == 0 else
+#                 "Buzz" if i % 5 == 0 else
+#                 "Fizz" if i % 3 == 0 else
+#                 str(i)
+#             )
+#         return ans
+    
+
+# n = 3
+
+# print(fizzBuzz(n))
+
+
+# 56 - easy
+
+
+# def numberOfSteps(num: int) -> int:
+#     step = 0
+
+#     while num != 0:
+#         step += 1
+#         if num % 2 == 0:
+#             num /= 2
+#         else:
+#             num -= 1
+#     return step
+
+
+# num = 14
+# print(numberOfSteps(num))
+
+
+# 57 - easy
+
+# from collections import Counter
+
+# def canConstruct(ransomNote: str, magazine: str) -> bool:
+#     cnt = Counter([magazine])
+
+
+# ransomNote = "aa"
+# magazine = "ab"
+# print(canConstruct(ransomNote, magazine))
+
+
+#### Pandas
+
+# import pandas as pd
+
+# def big_countries(world: pd.DataFrame) -> pd.DataFrame:
+#     df = pd.DataFrame(world)
+#     cont = df[(df['area'] >= 3000000) | (df['population'] >= 25000000)][['name', 'population', 'area']]
+#     return cont
+
+
+
+# data = [
+#     ['Afghanistan', 'Asia', 652230, 25500100, 20343000000],
+#     ['Albania', 'Europe', 28748, 2831741, 12960000000], 
+#     ['Algeria', 'Africa', 2381741, 37100000, 188681000000], 
+#     ['Andorra', 'Europe', 468, 78115, 3712000000], 
+#     ['Angola', 'Africa', 1246700, 20609294, 100990000000],
+#     ]
+
+# world = pd.DataFrame(data, columns=['name', 'continent', 'area', 'population', 'gdp']).astype({'name':'object', 'continent':'object', 'area':'Int64', 'population':'Int64', 'gdp':'Int64'})
+
+
+# print(big_countries(world))
+
+
+### Pandas
+
+
+
+import pandas as pd
+
+def find_products(products: pd.DataFrame) -> pd.DataFrame:
+    cont = products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')][['product_id']]
+    return cont
+
+data = [
+    ['0', 'Y', 'N'], 
+    ['1', 'Y', 'Y'], 
+    ['2', 'N', 'Y'], 
+    ['3', 'Y', 'Y'], 
+    ['4', 'N', 'N']
+    ]
+
+products = pd.DataFrame(data, columns=['product_id', 'low_fats', 'recyclable']).astype({'product_id':'int64', 'low_fats':'category', 'recyclable':'category'})
+print(find_products(products))
