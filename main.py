@@ -1249,19 +1249,179 @@
 
 
 
-import pandas as pd
+# import pandas as pd
 
-def find_products(products: pd.DataFrame) -> pd.DataFrame:
-    cont = products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')][['product_id']]
-    return cont
+# def find_products(products: pd.DataFrame) -> pd.DataFrame:
+#     cont = products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')][['product_id']]
+#     return cont
 
-data = [
-    ['0', 'Y', 'N'], 
-    ['1', 'Y', 'Y'], 
-    ['2', 'N', 'Y'], 
-    ['3', 'Y', 'Y'], 
-    ['4', 'N', 'N']
-    ]
+# data = [
+#     ['0', 'Y', 'N'], 
+#     ['1', 'Y', 'Y'], 
+#     ['2', 'N', 'Y'], 
+#     ['3', 'Y', 'Y'], 
+#     ['4', 'N', 'N']
+#     ]
 
-products = pd.DataFrame(data, columns=['product_id', 'low_fats', 'recyclable']).astype({'product_id':'int64', 'low_fats':'category', 'recyclable':'category'})
-print(find_products(products))
+# products = pd.DataFrame(data, columns=['product_id', 'low_fats', 'recyclable']).astype({'product_id':'int64', 'low_fats':'category', 'recyclable':'category'})
+# print(find_products(products))
+
+
+
+### easy
+
+
+# class Solution:
+#     def sortColors(self, nums: list[int]) -> None:
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         low, mid, high = 0, 0, len(nums) - 1
+            
+#         while mid <= high:
+#             if nums[mid] == 0:
+#                 nums[low], nums[mid] = nums[mid], nums[low]
+#                 low += 1
+#                 mid += 1
+#             elif nums[mid] == 1:
+#                 mid += 1
+#             else:
+#                 nums[mid], nums[high] = nums[high], nums[mid]
+#                 high -= 1
+
+
+### easy 
+
+
+# def isAnagram(s: str, t: str) -> bool:
+    # return sorted(s) == sorted(t)
+
+
+### medium 
+
+
+# class Solution:
+#     def isAdditiveNumber(self, num: str) -> bool:
+        
+#         if len(num) < 3:   ## Делаем проверку, на колличество проверяемого массива
+#             return False
+        
+
+## easy
+
+# class Solution:
+#     def shuffle(self, nums: list[int], n: int) -> list[int]: 
+#         ls = list()
+
+#         for i in range(n):
+#             ls.append(nums[i])
+#             ls.append(nums[i + n])
+#         return ls
+
+# nums = [1,2,3,4,4,3,2,1]
+# n = 4
+# s = Solution()
+# print(s.shuffle(nums, n))
+
+        
+
+## easy
+
+
+# class Solution:
+#     def countPairs(self, nums: list[int], target: int) -> int:
+#         counter = 0
+
+#         for i in range(len(nums) - 1):
+#             for j in range(1, len(nums)):
+
+#                 if (i < j) and (nums[i] + nums[j]) < target:
+#                     counter += 1
+
+#         return counter
+                
+
+
+# nums = [-1,1,2,3,1]
+# target = 2
+# s = Solution()
+# print(s.countPairs(nums, target))
+
+
+### вариант с двумя указателями
+
+
+# class Solution:
+#     def countPairs(self,nums:list[int], target:int) -> int:
+#         nums.sort()
+
+#         counter = 0
+
+#         left, right = 0, len(nums) - 1
+#         while left < right:
+#             if nums[left] + nums[right] < target:
+#                 counter += right - left
+#                 left += 1
+#             else:
+#                 right -= 1
+
+#         return counter
+    
+
+# nums = [-1,1,2,3,1]
+# target = 2
+# s = Solution()
+# print(s.countPairs(nums, target))
+
+
+# class Solution:
+#     def countPairs(self, nums: list[int], target: int) -> int:
+#         nums.sort()
+#         counter = 0
+#         left, right = 0, len(nums) - 1
+#         while left < right:
+#             if nums[left] + nums[right] < target:
+#                 counter += right - left
+#                 left += 1
+#             else:
+#                 right -= 1
+#         return counter
+
+
+# nums = [-1,1,2,3,1]
+# target = 2
+# s = Solution()
+# print(s.countPairs(nums, target))
+
+
+
+## easy
+
+
+# class Solution:
+#     def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
+#         smaller_list = []
+#         counter = 0
+
+#         for i in range(len(nums)):
+#             for j in range(len(nums)):
+#                 if (j != i) and (nums[j] < nums[i]):
+#                     counter += 1
+#             smaller_list.append(counter)
+#             counter = 0
+
+#         return smaller_list
+
+
+# class Solution:
+#     def smallerNumbersThanCurrent(self, nums: list[int]) -> list[int]:
+#         sorted_unique_nums = sorted(set(nums))  # уникальные числа, отсортированные
+#         smaller_counts = {num: i for i, num in enumerate(sorted_unique_nums)}
+#         return [smaller_counts[num] for num in nums]
+
+
+
+
+# s = Solution()
+# nums = [8,1,2,2,3]
+# print(s.smallerNumbersThanCurrent(nums))
