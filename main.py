@@ -1425,3 +1425,115 @@
 # s = Solution()
 # nums = [8,1,2,2,3]
 # print(s.smallerNumbersThanCurrent(nums))
+
+
+
+### easy
+
+
+# class Solution:
+#     def findMaxConsecutiveOnes(self, nums: list[int]) -> int:
+#         counter = 0
+#         ls = []
+#         for i in range(len(nums)):
+#             if nums[i] == 1:
+#                 counter += 1
+#             else:
+#                 ls.append(counter)
+#                 counter = 0
+#         ls.append(counter)
+#         return max(ls)
+    
+
+# s = Solution()
+# nums = [1, 0, 0, 1, 1, 1, 0]
+# print(s.findMaxConsecutiveOnes(nums))
+
+
+
+### easy
+
+
+# class Solution:
+#     # def findNumbers(self, nums: list[int]) -> int:
+#         # counter = 0
+#         # for i in nums:
+#         #     if len(str(i)) % 2 == 0:
+#         #         counter += 1
+#         # return counter
+    
+
+#         def findNumbers(self, nums: list[int]) -> int:
+#             def digit_count(number):
+#                 count = 0
+#                 while number > 0:
+#                     count += 1
+#                     number //= 10
+#                 return count
+            
+#             return sum(1 for i in nums if digit_count(i) % 2 == 0)
+
+
+# s = Solution()
+# nums = [555,901,482,1771]
+# print(s.findNumbers(nums))
+
+
+### easy
+
+
+# class Solution:
+#     def sortedSquares(self, nums: list[int]) -> list[int]:
+
+#         for i in range(len(nums)):
+#             nums[i] *= nums[i]
+#         nums.sort()
+#         return nums
+
+
+
+# s = Solution()
+# nums = [-4,-1,0,3,10]
+# print(s.sortedSquares(nums))
+
+
+### easy 
+
+# from collections import Counter
+
+
+# def firstUniqChar(s: str) -> int:
+#     r_split = [s for s in s]
+#     my_dict = Counter(r_split)
+
+#     for i in range(len(r_split)):
+#         if my_dict[r_split[i]] == 1:    
+#             return i
+#     else:
+#         return -1
+#     # return my_dict
+
+
+# s = "loveleetcode"
+# print(firstUniqChar(s))
+
+
+# def firstUniqChar(s: str) -> int:
+#     my_dict = Counter(s)
+
+#     for i in range(len(s)):
+#         if my_dict[s[i]] == 1:
+#             return i
+#     else:
+#         return -1
+# s = "loveleetcode"
+# print(firstUniqChar(s))
+
+
+# s = "loveleetcode"
+# mp = {}
+
+# for a in s:
+#     mp[a] = mp.get(a, 0) + 1
+
+# print(mp)
