@@ -1425,3 +1425,109 @@
 # s = Solution()
 # nums = [8,1,2,2,3]
 # print(s.smallerNumbersThanCurrent(nums))
+
+
+
+### easy
+
+
+# def twoSum(nums: list[int], target: int) -> list[int]:
+#     for i in range(len(nums)):
+#         for j in range(i + 1, len(nums)):
+#             if nums[i] + nums[j] == target:
+#                 return [i, j]
+#     return []
+
+
+
+# nums = [2,7,11,15]
+# target = 9
+# print(twoSum(nums, target))
+
+
+### easy
+
+
+# def strStr(haystack: str, needle: str) -> int:
+#     return haystack.find(needle) if needle in haystack else -1
+
+
+# haystack = "leetcode"
+# Needle = "leeto"
+# print(strStr(haystack, Needle))
+
+
+
+### pandas
+
+
+# import pandas as pd
+
+# def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
+#     pass
+
+
+
+
+
+
+
+# data = [[1, 'Joe'], [2, 'Henry'], [3, 'Sam'], [4, 'Max']]
+
+# customers = pd.DataFrame(data, columns=['id', 'name']).astype({'id':'Int64', 'name':'object'})
+
+# data = [[1, 3], [2, 1]]
+
+# orders = pd.DataFrame(data, columns=['id', 'customerId']).astype({'id':'Int64', 'customerId':'Int64'})
+# print(find_customers(customers, orders))
+
+
+# easy
+
+# class Solution:
+#     def missingNumber(self, nums: list[int]) -> int:
+#         pass
+    
+    
+    
+# nums = [3,0,1]
+# s = Solution()
+# print(s.missingNumber(nums))
+
+
+# class Solution:
+#     def isPowerOfTwo(self, n: int) -> bool:
+#         # for i in range(n):
+#         #     if 2 ** i == n:
+#         #         return True
+#         # return False
+#         for i in range(n):
+#             if pow(2, i) == n:
+#                 return True
+#         return False
+    
+# n = 131071
+# s = Solution()
+# print(s.isPowerOfTwo(n))
+
+
+
+# easy
+from collections import Counter
+
+class Solution:
+    def singleNumber(self, nums: list[int]) -> int:
+        # for i in nums:
+        #     if nums.count(i) == 1:
+        #         return i
+        my_dict = Counter(nums)
+        
+        d = {v: k for k, v in my_dict.items()}
+        print(d[1])
+ 
+ 
+ 
+    
+nums = [2, 2, 1, 2]
+s = Solution()
+print(s.singleNumber(nums))
