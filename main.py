@@ -1537,3 +1537,335 @@
 #     mp[a] = mp.get(a, 0) + 1
 
 # print(mp)
+
+
+
+# from collections import defaultdict
+
+# class Solution:
+#     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+#         my_dict = defaultdict(list)
+
+#         for word in strs:
+#             sort_word = tuple(sorted(word))
+#             my_dict[sort_word].append(word)
+#         return list(my_dict.values())
+
+
+
+
+# s = Solution()
+# strs = ["eat","tea","tan","ate","nat","bat"]
+# print(s.groupAnagrams(strs))
+
+
+
+# class Solution:
+#     def convertTemperature(self, celsius: float) -> list[float]:
+#         return [celsius + 273.15, celsius * 1.80 + 32.00]
+
+
+
+# s = Solution()
+# celsius = 36.50
+# print(s.convertTemperature(celsius))
+
+
+
+
+# easy
+
+
+# def manacher_algorithm(s):
+#     s_trans = '@#' + '#'.join(list(s)) + '#$'
+#     print(s_trans)
+
+
+#     p = [0] * len(s)
+#     c = 0
+#     r = 0
+
+#     for i in range(1, len(s_trans) - 1):
+#         mirr = 2 * c - i
+#         print(mirr, 'mirr')
+
+#         if i < r:
+#             p[i] = min(r - i, p[mirr])
+
+#         while s_trans[i + (1 + p[i])] == s_trans[i - (1 + p[i])]:
+#             p[i] += 1
+        
+#         if i + p[i] > r:
+#             c = i
+#             r = i + p[i]
+
+#         counter_polindromes = 0
+#         for lenght in p:
+#             counter_polindromes += (lenght // 2)
+
+#         return counter_polindromes
+    
+
+# s = 'aaa'
+# print(manacher_algorithm(s))
+
+
+
+# def manacher_algorithm(s):
+#     s_transformed = '@#' + '#'.join(s) + '#$'
+
+#     p = [0] * len(s_transformed)
+#     c = 0 
+#     r = 0 
+
+#     for i in range(1, len(s_transformed) - 1):
+#         mirr = 2 * c - i
+        
+#         if i < r:
+#             p[i] = min(r - i, p[mirr])
+        
+#         while s_transformed[i + (p[i] + 1)] == s_transformed[i - (p[i] + 1)]:
+#             p[i] += 1
+        
+#         if i + p[i] > r:
+#             c = i
+#             r = i + p[i]
+
+#     count = 0
+#     for length in p:
+#         count += (length + 1) // 2
+#     return count
+
+
+# s = "aaa"
+# print(manacher_algorithm(s))
+
+
+
+
+# easy
+
+
+# class Solution:
+#     def removeOuterParentheses(self, s: str) -> str:
+#         stack = []
+#         brackets_map = {
+#             ')': '(',
+#             ']': '[', 
+#             '}': '{',
+#             }
+
+#         for i, char in enumerate(s, start=1):
+#             if char in brackets_map.values():
+#                 stack.append((char, i))
+#             elif char in brackets_map:
+#                 if not stack or stack[-1][0] != brackets_map[char]:
+#                     return i
+#                 stack.pop()
+
+#         if stack:
+#             return[0][1]
+    
+#         return 'Success'
+
+
+
+
+
+# parantheses = '([](){([])})'
+# s = Solution()
+# print(s.removeOuterParentheses(parantheses))
+
+
+
+
+
+# def removeOuterParentheses(s: str) -> str:
+# parantheses = input()
+# stack = []
+# index = -1
+# result = True
+# brackets_map = {
+#     ')': '(',
+#     ']': '[', 
+#     '}': '{',
+#     }
+
+
+# for i, char in enumerate(parantheses, start=1):
+#     if char in brackets_map.values():
+#         stack.append((char, i))
+#     elif char in brackets_map:
+#         if not stack or stack[-1][0] != brackets_map[char]:
+#             result = False
+#             index = i
+#             break
+#         stack.pop()
+
+# if stack and result:
+#     result = False
+#     indes = stack[0][1]
+
+# if result:
+#     print('Success')
+# else:
+#     print(index)
+
+
+
+
+# def check_brackets(s: str) -> str:
+#     stack = []
+#     brackets_map = {
+#         ')': '(',
+#         ']': '[', 
+#         '}': '{',
+#         }
+
+#     for i, char in enumerate(s, start=1):
+#         if char in brackets_map.values():
+#             stack.append((char, i))
+#         elif char in brackets_map:
+#             if not stack or stack[-1][0] != brackets_map[char]:
+#                 return i
+#             stack.pop()
+
+#     if stack:
+#         return[0][1]
+    
+#     return 'Success'
+
+
+
+
+
+# parantheses = input()
+# print(check_brackets(parantheses))
+
+
+
+
+# def run(string):
+#     braces = {')': '(', '}': '{', ']': '['}
+#     stack = []
+#     for i, c in enumerate(string, start=1):
+#         if c in braces.values():
+#             stack.append((c, i))
+#         if c in braces and (not stack or braces[c] != stack.pop()[0]):
+#             return i
+#     return stack.pop()[1] if stack else 'Success'
+
+
+# if __name__ == '__main__':
+#     print(run(input()))
+
+
+
+
+
+# def find_Majority(nums: list[int]) -> int:
+#     counter = 0
+#     candidates = None
+
+#     for num in nums:
+#         if counter == 0:
+#             candidates = num
+        
+#         counter += (1 if num == candidates else -1)
+    
+#     return candidates
+
+
+
+# easy 
+
+
+
+# class Solution:
+#     def firstPalindrome(self, words: list[str]) -> str:
+#         for i in words:
+#             if i == i[::-1]:
+#                 return i
+#         return ''
+
+
+
+# words = ["notapalindrome","racecar"]
+# s = Solution()
+# print(s.firstPalindrome(words))
+
+
+# easy
+
+# from collections import Counter
+
+# class Solution:
+#     def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+#         pass
+
+
+
+
+# s = Solution()
+# nums = [1,1,1,2,2,3]
+# k = 2
+# print(s.topKFrequent(nums, k))
+
+
+
+
+# class Solution:
+#     def maxProfit(self, prices: list[int]) -> int:
+#         min_price, max_profit = prices[0], 0
+
+#         for i in range(1, len(prices)):
+#             if prices[i] < min_price:
+#                 min_price = prices[i]
+            
+#             if prices[i] - min_price > max_profit:
+#                 max_profit = prices[i] - min_price
+            
+#         return max_profit
+
+
+
+# prices = [7,6,4,3,1]
+# s = Solution()
+# print(s.maxProfit(prices))
+
+
+
+
+# class Solution:
+#     def isPalindrome(self, s: str) -> bool:
+#         string = ''.join(i for i in s.lower() if i.isalnum())
+#         return string == string[::-1]
+    
+#         # for i in s.lower():
+#         #     if i in 'abcdefghijklmnopqrstuvwxyz0123456789':
+#         #         string += i
+
+#         # return string == string[::-1]
+
+
+
+
+# res = "0P"
+# s = Solution()
+# print(s.isPalindrome(res))
+
+
+
+
+
+# class Solution:
+#     def search(self, nums: list[int], target: int) -> int:
+#         return nums.index(target) if target in nums else -1
+
+
+
+
+# s = Solution()
+# nums = [-1,0,3,5,9,12]
+# target = 9
+# print(s.search(nums, target))
